@@ -1,0 +1,69 @@
+---
+title: "Contactbook – Apple Contacts CLI & MCP Server"
+publishedAt: "2024-10-01"
+summary: "A powerful CLI tool and MCP server for managing Apple Contacts with full CRUD operations and natural language search."
+images:
+  - "/images/projects/contactbook/cover.jpg"
+team:
+  - name: "Ryan Lisse"
+    role: "Creator & Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/ryanlisse"
+link: "https://github.com/RyanLisse/contactbook"
+---
+
+## Overview
+
+Contactbook provides a command-line interface and MCP server for managing Apple Contacts. It enables full CRUD operations on contacts and groups with powerful natural language search capabilities.
+
+## The Problem
+
+Apple's Contacts app is great for casual use, but power users and developers need programmatic access. Contactbook bridges this gap, making contacts accessible from the terminal and AI assistants.
+
+## Key Features
+
+- **Full CRUD Operations**: Create, read, update, and delete contacts and groups
+- **Natural Language Search**: Find contacts using fuzzy matching and semantic search
+- **Group Management**: Organize contacts into groups with bulk operations
+- **Smart Merging**: Detect and merge duplicate contacts intelligently
+- **Export/Import**: JSON and vCard format support
+- **MCP Integration**: Expose contact management to AI assistants
+
+## Technologies Used
+
+- **Swift**: Native macOS implementation
+- **Contacts Framework**: Apple's native contacts API
+- **MCP SDK**: Model Context Protocol server implementation
+- **Commander**: CLI framework for clean command structure
+
+## CLI Commands
+
+```bash
+# Search contacts
+contactbook search "John"
+
+# Create a new contact
+contactbook add --name "Jane Doe" --email "jane@example.com"
+
+# List all groups
+contactbook groups list
+
+# Add contact to group
+contactbook groups add-member "Work" "Jane Doe"
+
+# Export contacts
+contactbook export --format json --output contacts.json
+```
+
+## MCP Tools
+
+The MCP server exposes tools like:
+- `contacts_search`: Natural language contact search
+- `contacts_create`: Create new contacts
+- `contacts_update`: Update existing contacts
+- `groups_list`: List all contact groups
+- `groups_manage`: Add/remove contacts from groups
+
+## Outcome
+
+Contactbook makes Apple Contacts accessible to power users and AI assistants, enabling automation and integration scenarios that weren't previously possible.

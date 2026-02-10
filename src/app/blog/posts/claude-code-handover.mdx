@@ -1,0 +1,168 @@
+---
+title: "The /handover Command: How to Give Claude Code Persistent Memory"
+publishedAt: "2026-02-10"
+image: "/images/og/claude-code-handover.jpg"
+summary: "A custom slash command that generates session handover documents — solving the biggest pain point in agentic development."
+tag: "AI"
+---
+
+## The Context Amnesia Problem
+
+Every Claude Code user hits this wall: you're deep into a complex task, the context window fills up, and you need to start a new session. But the new session knows nothing. You're back to explaining your project from scratch.
+
+Zara Zhang [solved this elegantly](https://x.com/zarazhangrui/status/2020992712825241801) with a custom `/handover` slash command. When ending a session, it generates a comprehensive handover document — decisions made, pitfalls discovered, lessons learned, current state — so the next session's Claude has full context.
+
+Nearly 2,000 likes and 130 comments. This clearly hit a nerve.
+
+## How It Works
+
+Claude Code supports custom slash commands via markdown files in your project's `.claude/commands/` directory. Each `.md` file becomes a slash command.
+
+### Setting Up /handover
+
+Create `.claude/commands/handover.md`:
+
+```markdown
+Generate a comprehensive handover document for this session.
+
+Include:
+
+## Session Summary
+- What was the goal of this session?
+- What did we accomplish?
+
+## Key Decisions Made
+- List every architectural or design decision with rationale
+- Note any alternatives considered and why they were rejected
+
+## Current State
+- What's working?
+- What's partially complete?
+- What's the exact state of the codebase?
+
+## Known Issues & Pitfalls
+- Bugs discovered
+- Edge cases identified
+- Things that almost worked but didn't (and why)
+
+## Lessons Learned
+- What surprised us?
+- What took longer than expected?
+- What would we do differently?
+
+## Next Steps
+- Prioritized list of what to do next
+- Any blockers or dependencies
+
+## Context for Next Session
+- Key files modified: list them
+- Important state: environment, branch, etc.
+- Anything the next Claude needs to know immediately
+
+Save this to .claude/handover/YYYY-MM-DD-HH-MM.md
+```
+
+When you type `/handover`, Claude generates a timestamped document capturing everything from the current session.
+
+## Why This Matters More Than You Think
+
+### 1. Institutional Knowledge Persists
+
+Without handover documents, knowledge lives only in context windows. Every new session is a cold start. With them, each session builds on the last. Your project accumulates intelligence.
+
+### 2. Debugging Time Drops Dramatically
+
+Half of debugging is reconstructing "how did we get here?" Handover documents answer this before you even ask. "We tried approach X but it failed because Y" saves hours.
+
+### 3. Multi-Agent Workflows Become Viable
+
+If you're running agent swarms (multiple Claude Code instances on different tasks), handover documents become the communication protocol. Agent A's handover is Agent B's context.
+
+### 4. You Can Onboard Yourself
+
+Come back to a project after two weeks? Read the last handover document. You're caught up in 2 minutes instead of 20.
+
+## My Enhanced Implementation
+
+I've been using a similar pattern in my own agentic workflow, and I've extended it beyond what Zara described:
+
+### The Handover Chain
+
+Instead of isolated documents, I maintain a chain. Each handover references the previous one:
+
+```markdown
+## Previous Session
+- Handover: .claude/handover/2026-02-09-14-30.md
+- Key carryover: [what's still relevant from last time]
+```
+
+This creates a queryable history. When something breaks three sessions later, you can trace back through the chain.
+
+### Structured Metadata
+
+I add machine-readable metadata so scripts can parse handover documents:
+
+```markdown
+---
+session_start: 2026-02-10T10:00:00Z
+session_end: 2026-02-10T11:45:00Z
+files_modified: [src/api/router.ts, tests/api.test.ts]
+branch: feature/document-parsing
+status: in-progress
+blockers: [waiting on API key for prod environment]
+---
+```
+
+### Auto-Load on Session Start
+
+Pair `/handover` with a session start command that automatically loads the most recent handover:
+
+`.claude/commands/resume.md`:
+```markdown
+Read the most recent file in .claude/handover/ and summarize:
+1. Where we left off
+2. What's the immediate next step
+3. Any blockers or warnings
+
+Then read AGENTS.md for project context.
+```
+
+Now starting a session is: `/resume` → immediately productive.
+
+## Integration with AGENTS.md
+
+If you're already using an AGENTS.md file (which you should be), handover documents complement it perfectly:
+
+- **AGENTS.md** = static project context (architecture, conventions, tools)
+- **Handover docs** = dynamic session context (what happened, what's next)
+
+Together they give any Claude session — or any human developer — complete situational awareness.
+
+## The Broader Pattern: Session Continuity
+
+The `/handover` command is an instance of a larger pattern I think about a lot: **how do we give AI agents persistent memory without persistent state?**
+
+Current solutions:
+- **Context files** (AGENTS.md, CLAUDE.md) — static, manual updates
+- **Handover documents** — dynamic, per-session
+- **Memory systems** (like my `memory/` directory) — structured long-term storage
+- **Git history** — implicit but hard to query
+
+The ideal system combines all four. Each layer serves a different timescale:
+- Git = permanent record
+- AGENTS.md = project-lifetime context
+- Memory files = week-to-month knowledge
+- Handover docs = session-to-session continuity
+
+## Try It Today
+
+This takes 5 minutes to set up:
+
+1. Create `.claude/commands/handover.md` with the template above
+2. Create `.claude/handover/` directory
+3. At the end of every session, run `/handover`
+4. At the start of every session, read the latest handover
+
+Simple. Powerful. One of those ideas that's obvious in hindsight but transforms your workflow once you start doing it.
+
+The context window is finite. Your project's knowledge shouldn't be.

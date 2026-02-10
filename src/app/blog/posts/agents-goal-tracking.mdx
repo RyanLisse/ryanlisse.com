@@ -1,0 +1,73 @@
+---
+title: "Using AI Agents for Personal Goal Tracking and Self-Alignment"
+publishedAt: "2026-02-10"
+image: "/images/og/agents-goal-tracking.jpg"
+summary: "How to use AI agents not just for coding — but for tracking personal goals and maintaining alignment with what matters."
+tag: "Productivity"
+---
+
+## Agents Beyond Code
+
+Most people think of AI agents as coding tools. [Ashe](https://x.com/ashebytes/status/2021002831185268988) shared a walkthrough of something different: using agents for personal goal tracking and self-alignment.
+
+The idea is simple but powerful: what if your AI assistant didn't just help you work, but helped you work on the *right things*?
+
+## The Self-Alignment Problem
+
+We all set goals. We all drift. The gap between "what I said I'd focus on" and "what I actually spent time on" grows silently until you look back at a quarter and wonder where it went.
+
+Traditional solutions (journals, habit trackers, OKR software) fail because they're passive. You have to remember to check them. An agent can be active — it checks on *you*.
+
+## How Agent-Based Goal Tracking Works
+
+The pattern Ashe describes:
+
+### 1. Define Goals as Structured Data
+Not vague aspirations. Specific, measurable goals with timelines, stored in a format your agent can read:
+
+```yaml
+goals:
+  - name: "Ship ryanlisse.com portfolio"
+    deadline: 2026-02-15
+    milestones:
+      - "Blog section live with 5 posts" 
+      - "Projects showcase complete"
+      - "Contact form working"
+    priority: high
+```
+
+### 2. Regular Agent Check-Ins
+Your agent periodically reviews your activity (git commits, calendar, files modified) against your stated goals. It can flag:
+- "You haven't touched the portfolio in 3 days"
+- "You spent 12 hours on side projects this week — your main goal is behind"
+- "Milestone 2 is due in 48 hours and looks incomplete"
+
+### 3. Reflection Prompts
+Instead of generic "how was your day?" journaling, the agent asks targeted questions based on your actual behavior:
+- "You committed to 3 repos today but none were your priority project. Was this intentional?"
+- "Your calendar shows 4 hours of meetings tomorrow. When will you work on [goal]?"
+
+### 4. Pattern Recognition
+Over time, the agent notices patterns: "You tend to lose focus on Wednesdays," or "Your most productive coding happens between 9-11am — but you keep scheduling meetings then."
+
+## Why This Works Better Than Apps
+
+- **Active, not passive.** The agent comes to you. You don't have to remember to open an app.
+- **Context-aware.** It sees your actual work, not just what you self-report.
+- **Non-judgmental accountability.** An agent won't guilt you. It'll just show you the data.
+- **Adaptive.** It learns your patterns and adjusts its check-ins.
+
+## Implementing This With Your Existing Setup
+
+If you're already running an agent (Claude Code, OpenClaw, etc.), adding goal tracking is lightweight:
+
+1. Create a `goals.yml` in your workspace
+2. Add a heartbeat routine that reviews recent activity against goals
+3. Store reflections in `memory/` for long-term pattern analysis
+4. Set up periodic prompts (daily standup, weekly review)
+
+The infrastructure already exists. The only missing piece is pointing your agent at your *life*, not just your *code*.
+
+## The Bigger Picture
+
+This connects to a trend I'm watching closely: **agents as cognitive extensions, not just productivity tools.** The best use of AI isn't doing work for you — it's helping you do the right work. Self-alignment is the meta-skill, and agents can make it automatic.

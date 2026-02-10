@@ -1,0 +1,153 @@
+---
+title: "Socratic Prompting: The Technique That Took My AI Output from 6/10 to 9/10"
+publishedAt: "2026-02-10"
+image: "/images/og/socratic-prompting.jpg"
+summary: "Stop telling AI what to do. Start asking it questions. Here's the leaked prompting technique from OpenAI and Anthropic engineers."
+tag: "AI"
+---
+
+## The Prompt That Changes Everything
+
+Most people prompt AI like they're ordering food: "Write me a blog post about X." Then they're disappointed when the result is generic slop.
+
+Engineers at OpenAI and Anthropic do something different. Instead of giving instructions, they ask questions. It's called **Socratic prompting**, and once you see it, you can't unsee why it works.
+
+Ryan Lazuka [shared the technique](https://x.com/lazukars/status/2020787126624030910) and reported his output quality jumping from 6.2/10 to 9.1/10. That's not hype — it's a fundamental shift in how you interact with language models.
+
+## Why Instructions Fail
+
+When you tell an AI "Write a technical blog post about React Server Components," you're doing all the thinking. The model receives a narrow instruction and produces a narrow output. It fills in the blanks of YOUR framework.
+
+The problem: your framework might be wrong. Or incomplete. Or boring.
+
+Instructions constrain the model's reasoning. You're essentially saying: "Don't think too hard, just execute." And that's exactly what you get — execution without depth.
+
+## How Socratic Prompting Works
+
+Instead of instructions, you ask the model questions that force it to reason deeply before producing output.
+
+### The Before (Instructional):
+```
+Write a 1000-word blog post about why TypeScript is better than JavaScript 
+for large projects. Include examples.
+```
+
+### The After (Socratic):
+```
+What are the most common failure modes in large JavaScript codebases?
+Which of these would static typing prevent, and which would it not?
+What tradeoffs does TypeScript introduce that teams often underestimate?
+Given these tradeoffs, what's the honest case for TypeScript in a 
+50-developer organization?
+```
+
+See the difference? The first prompt says "give me propaganda." The second says "think deeply, then give me truth."
+
+## The Four Layers of Socratic Prompting
+
+### Layer 1: Clarification Questions
+Force the model to define its terms and examine assumptions.
+
+- "What exactly do we mean by [concept]?"
+- "What assumptions are we making here?"
+- "How would someone who disagrees frame this?"
+
+### Layer 2: Probing Questions
+Push the model to explore reasoning and evidence.
+
+- "What's the strongest evidence for this claim?"
+- "What would have to be true for the opposite to be correct?"
+- "How would we test this empirically?"
+
+### Layer 3: Perspective Questions
+Expand the model's viewpoint beyond the obvious.
+
+- "How does this look from [different stakeholder]'s perspective?"
+- "What adjacent domains have solved similar problems? How?"
+- "What would a beginner notice that an expert would miss?"
+
+### Layer 4: Implication Questions
+Force the model to follow its reasoning to conclusions.
+
+- "If this is true, what else must be true?"
+- "What are the second-order effects of this approach?"
+- "What would change our mind about this?"
+
+## Why It Works (The Technical Reason)
+
+Language models are next-token predictors. When you give an instruction, the model predicts what a "helpful assistant" would write next. That's a narrow distribution — polite, generic, safe.
+
+When you ask a question, the model predicts what a "thoughtful reasoner" would say. That's a much richer distribution. Questions activate deeper reasoning pathways in the model because they require:
+
+1. **Decomposition** — Breaking the question into sub-problems
+2. **Evaluation** — Weighing different answers
+3. **Synthesis** — Combining insights into a coherent response
+
+Instructions skip all three. Questions force all three.
+
+## My Practical Framework
+
+Here's how I use Socratic prompting in my daily workflow:
+
+### For Code Architecture Decisions:
+```
+What are the failure modes of [approach A]?
+What problems does [approach B] solve that A doesn't?
+What new problems does B introduce?
+Given our constraints [X, Y, Z], which tradeoffs matter most?
+Design the solution that optimizes for the tradeoffs that matter.
+```
+
+### For Writing:
+```
+What does [audience] actually care about regarding [topic]?
+What do they already know? What's their biggest misconception?
+What's the one insight that would change how they think about this?
+Write the piece around that insight.
+```
+
+### For Debugging:
+```
+What are all the possible causes of [symptom]?
+Which of these would produce exactly this behavior and no other symptoms?
+What's the fastest way to distinguish between the remaining possibilities?
+```
+
+### For Agent Task Design:
+```
+What's the actual goal behind this task?
+What would a perfect output look like?
+What are the ways this could go wrong?
+What guardrails prevent each failure mode?
+Now write the task specification.
+```
+
+## The Meta-Technique
+
+The real power move: use Socratic prompting to *improve your Socratic prompting*.
+
+```
+Given this task I'm trying to accomplish: [task]
+What are the 5 most important questions I should ask before starting?
+Which of these questions, if answered well, would make the others obvious?
+Start with that one.
+```
+
+This recursive application is what separates casual users from people who get genuinely remarkable output from AI.
+
+## When NOT to Use It
+
+Socratic prompting is overkill for:
+- Simple factual queries ("What's the capital of France?")
+- Mechanical transformations ("Convert this JSON to YAML")
+- Well-defined tasks with no ambiguity
+
+Use it for anything requiring judgment, creativity, analysis, or strategic thinking. That's where the 6→9 jump happens.
+
+## The Bottom Line
+
+Stop ordering AI around. Start interviewing it.
+
+The models are far more capable than most people realize. The bottleneck isn't intelligence — it's activation. Questions activate reasoning. Instructions activate pattern-matching.
+
+Ask better questions, get better answers. It really is that simple.

@@ -1,0 +1,111 @@
+---
+title: "Agent Factory Orchestration: What Kelly and the Software Factory Pattern Mean for Development"
+publishedAt: "2026-02-10"
+image: "/images/og/agent-factory-orchestration.jpg"
+summary: "Austen Allred's Kelly experiment and the emerging pattern of AI agent orchestration for software development at scale."
+tag: "AI"
+---
+
+## The Software Factory Is Here
+
+Austen Allred has been running experiments with [Kelly](https://x.com/Austen/status/2020922007874044251), a software factory agent orchestration system. The concept: instead of one AI agent writing code, you orchestrate multiple specialized agents in a factory-like pipeline.
+
+This isn't theoretical. Multiple teams are converging on the same pattern — and it's reshaping how software gets built.
+
+## What Is Agent Factory Orchestration?
+
+Traditional AI coding: you have one agent (Claude Code, Cursor, Copilot) and you interact with it sequentially. You're the manager, it's the developer.
+
+Agent factory orchestration: you have multiple agents with different roles, coordinated by an orchestrator. You define the work at a high level, and the factory handles decomposition, assignment, execution, and integration.
+
+Think assembly line, not artisan workshop.
+
+### The Typical Factory Architecture
+
+```
+Orchestrator (you or a meta-agent)
+├── Planner Agent — decomposes tasks into subtasks
+├── Architect Agent — makes structural decisions
+├── Coder Agent 1 — implements feature A
+├── Coder Agent 2 — implements feature B
+├── Reviewer Agent — checks code quality
+├── Tester Agent — writes and runs tests
+└── Integrator Agent — merges and resolves conflicts
+```
+
+Each agent is specialized. The planner doesn't write code. The coder doesn't plan. Specialization means each agent operates within a smaller context, producing better results.
+
+## Kelly's Approach
+
+From what Austen has shared, Kelly experiments with:
+
+- **Multi-agent coordination** — Multiple Claude instances working on different parts of a codebase simultaneously
+- **Iterative refinement** — Agents review each other's work
+- **Factory pipeline** — Work flows through stages rather than being done in one shot
+
+The "slight tweaks" he mentioned suggest this is an evolving system where the orchestration logic itself is being iterated on — which is exactly the right approach. Nobody has figured out the optimal factory configuration yet.
+
+## How This Compares to Other Approaches
+
+### vs. Single Agent (Claude Code Solo)
+The factory pattern parallelizes work that a single agent would do sequentially. For complex features touching many files, this can be 3-5x faster. The tradeoff: coordination overhead and potential conflicts.
+
+### vs. NTM/Beads Workflow
+My own workflow uses NTM (Named Tmux Manager) to orchestrate agent swarms with beads (structured task decomposition). The key difference from Kelly-style orchestration:
+
+- **Beads** are pre-planned, self-contained task descriptions with explicit dependency graphs
+- **NTM** assigns beads to agents and monitors progress
+- **The human** (me) does the planning; agents do the execution
+
+Factory orchestration like Kelly tries to automate more of the planning step. This is higher-leverage when it works but riskier — bad plans multiply through the factory.
+
+### vs. Devin/Codegen Agents
+Fully autonomous agents try to do everything end-to-end. Factory orchestration is a middle ground: more automation than manual agent management, more control than full autonomy.
+
+## The Patterns That Actually Work
+
+After months of running multi-agent workflows, here's what I've found works:
+
+### 1. Human Plans, Agents Execute
+The 80/20 rule from my AGENTS.md: spend 80% of time planning, 20% implementing. This applies even more with agent factories. A well-decomposed plan with clear interfaces between tasks can be parallelized across agents trivially. A vague plan produces chaos.
+
+### 2. Explicit Interfaces Between Agents
+When Agent A and Agent B work on related code, define the interface explicitly before either starts. "Agent A owns the API contract. Agent B consumes it. Here's the type signature." Without this, merge conflicts and inconsistencies explode.
+
+### 3. Progressive Verification
+Don't wait until all agents finish to check their work. Verify incrementally:
+- Each agent runs its own tests before "submitting"
+- A reviewer agent checks each submission
+- Integration tests run after each merge
+- The orchestrator can roll back and reassign failed tasks
+
+### 4. Specialized > Generalized Agents
+An agent told "you are a TypeScript testing specialist" produces better tests than one told "implement this feature and also write tests." Role specialization constrains the agent's focus and improves output quality.
+
+### 5. Shared Context, Isolated Execution
+All agents should read the same AGENTS.md, architecture docs, and conventions. But each agent should work in isolation (separate branches, separate directories) to prevent interference.
+
+## Where This Is Going
+
+The factory pattern is converging from multiple directions:
+
+- **Austen/Kelly**: Software factory experiments
+- **OpenClaw ecosystem**: LobsterX and specialized agent variants
+- **Individual developers**: NTM-style personal swarms
+- **Enterprise tools**: Devin, Factory, Codegen
+
+Within a year, I expect agent orchestration to be as standard as CI/CD. You'll define your "factory config" alongside your `Dockerfile` and `github-actions.yml`.
+
+The developers who learn to orchestrate now — who understand task decomposition, agent specialization, and coordination patterns — will have a massive advantage. Not because they can code faster, but because they can *manage* faster.
+
+## Getting Started
+
+If you want to experiment with agent factory patterns today:
+
+1. **Start with two agents.** One implements, one reviews. Get comfortable with the coordination overhead.
+2. **Pre-plan meticulously.** The factory is only as good as its work orders.
+3. **Use structured task formats.** Beads, GitHub issues with clear specs, or whatever gives agents unambiguous instructions.
+4. **Monitor actively.** Agent factories are not "fire and forget" yet. Check in frequently.
+5. **Iterate on the orchestration.** The factory itself is a product. Improve it.
+
+The future of software development isn't one developer with one AI. It's one developer orchestrating many. Start building that muscle now.

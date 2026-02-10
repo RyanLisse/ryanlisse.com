@@ -1,0 +1,100 @@
+---
+title: "Compound Engineering: Codebases That Get Easier Over Time"
+publishedAt: "2026-02-10"
+image: "/images/og/compound-engineering.jpg"
+summary: "Most codebases decay. Compound engineering reverses entropy — here's how to build systems that improve with every commit."
+tag: "Engineering"
+---
+
+## The Problem Everyone Ignores
+
+Every developer knows the feeling. You start a project, everything is clean and fast. Six months later, every change feels like surgery. A year in, you're afraid to touch anything.
+
+Most codebases accumulate complexity like sediment. Each feature adds weight. Each workaround becomes load-bearing. Eventually you're spending 80% of your time fighting the system instead of building on it.
+
+Kieran Klaassen's compound engineering framework — now with 7,000+ GitHub stars and a [definitive guide published by Every](https://every.to) — flips this entirely. The core thesis: **codebases should get easier to work with over time, not harder.**
+
+## What Is Compound Engineering?
+
+Compound engineering is a set of principles and practices that make each addition to your codebase reduce future friction rather than increase it. Think of it like compound interest, but for developer velocity.
+
+Traditional engineering: `effort_per_feature = base_effort × complexity_factor^n`
+
+Compound engineering: `effort_per_feature = base_effort × (1 / improvements_compounded)`
+
+The difference isn't magic. It's discipline applied to the right abstractions.
+
+## Beliefs You Need to Abandon
+
+**1. "Don't abstract too early."**
+
+The compound engineering take: early abstraction is fine if it's the *right kind*. The problem was never abstraction — it was *wrong* abstraction. When you build genuinely reusable primitives, they pay dividends on every future feature.
+
+**2. "Move fast and fix later."**
+
+"Later" is a lie. Technical debt compounds too, just in the wrong direction. Compound engineering says: move deliberately and build foundations that accelerate you.
+
+**3. "More code = more capability."**
+
+The best compound engineering codebases *shrink* as they gain features. Each new primitive makes multiple features possible with less code.
+
+## Beliefs You Need to Adopt
+
+**1. Every commit should make the next commit easier.**
+
+This is the north star. Before merging anything, ask: "Does this make future development faster or slower?" If slower, refactor until it doesn't.
+
+**2. Invest in primitives, not features.**
+
+Features are what users see. Primitives are what developers compose. A well-designed primitive enables dozens of features. Compound engineers obsess over the primitive layer.
+
+**3. Convention eliminates decision fatigue.**
+
+Strong conventions mean developers spend zero time on decisions that don't matter. File structure, naming, patterns — lock them down. Every decision you don't have to make is cognitive bandwidth for decisions that matter.
+
+**4. Tests are an investment, not a cost.**
+
+In compound engineering, tests aren't bureaucracy. They're the guardrails that let you refactor fearlessly. Without them, your codebase calcifies because everyone's afraid to change things.
+
+## How This Works in Practice
+
+The Klaassen plugin (the one with 7k stars) implements these principles as a development framework:
+
+- **Standardized module structure** — Every new module follows the same pattern, making the codebase self-documenting
+- **Composable primitives** — Small, focused utilities that combine for complex behavior
+- **Generated boilerplate** — Convention-heavy scaffolding so you write only the unique logic
+- **Progressive disclosure** — Simple API surface that reveals complexity only when needed
+
+The result: adding the 50th feature takes *less* time than adding the 5th, because by then your primitives are battle-tested and your conventions are muscle memory.
+
+## Compound Engineering × AI Agents
+
+This framework becomes even more powerful with AI-assisted development. Here's why:
+
+**AI thrives on convention.** When your codebase follows strong patterns, AI coding agents can generate correct code with minimal context. The more conventional your project, the better Claude Code, Copilot, or any agent performs on it.
+
+**Primitives are learnable.** A well-documented primitive library is essentially a custom API that AI agents can master within a single context window. Each primitive you add makes AI-generated code more capable.
+
+**Compound + Agents = Superlinear scaling.** Traditional development scales linearly (more devs = roughly more output). Compound engineering with AI agents scales superlinearly — each improvement to the codebase makes both human and AI developers more productive.
+
+In my own work with agentic development workflows (NTM swarms, beads-based task decomposition), I've seen this firsthand. Projects with strong conventions and composable primitives let me spin up 4-5 AI agents working in parallel with minimal coordination overhead. Projects without them? Even one agent produces garbage.
+
+## The Practical Playbook
+
+If you want to start applying compound engineering today:
+
+1. **Audit your last 10 commits.** How many made future work easier? How many added complexity? Be honest.
+
+2. **Identify your primitives.** What are the 5-10 core abstractions in your project? Are they clean, composable, well-tested?
+
+3. **Establish conventions and enforce them.** Use linters, templates, and generators. Remove all style decisions from code review.
+
+4. **Measure developer velocity over time.** If features are taking longer, something is compounding in the wrong direction.
+
+5. **Refactor toward primitives, not away from bugs.** When you fix something, don't just patch it — ask what primitive would prevent the entire class of bug.
+
+## The Bottom Line
+
+Compound engineering isn't a framework you install. It's a mindset shift: every line of code is either an investment or a debt. The developers who internalize this build systems that feel like running downhill — where the 100th feature is easier than the 10th.
+
+In the age of AI agents, this matters more than ever. Your codebase isn't just for human developers anymore. It's an interface for AI. Make it compound, and everything accelerates.

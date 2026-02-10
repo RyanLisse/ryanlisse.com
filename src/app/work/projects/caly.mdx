@@ -1,0 +1,68 @@
+---
+title: "Caly – macOS Calendar CLI & MCP Server"
+publishedAt: "2024-09-01"
+summary: "A command-line interface and MCP server for Apple Calendar with natural language event management and EventKit integration."
+images:
+  - "/images/projects/caly/cover.jpg"
+team:
+  - name: "Ryan Lisse"
+    role: "Creator & Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/ryanlisse"
+link: "https://github.com/RyanLisse/caly"
+---
+
+## Overview
+
+Caly is a macOS Calendar CLI tool and MCP server that enables natural language calendar management. Built on Apple's EventKit framework, it provides full access to calendars, events, and reminders.
+
+## The Problem
+
+Managing calendars from the terminal or through AI assistants requires robust tooling. Caly provides a clean interface for calendar operations, making it easy to automate scheduling and integrate with other tools.
+
+## Key Features
+
+- **Natural Language Input**: Create events using natural language ("Meeting tomorrow at 3pm")
+- **Multi-Calendar Support**: Work with all calendars synced to macOS
+- **Event Management**: Create, update, delete, and query events
+- **Availability Checking**: Find free slots and detect conflicts
+- **Recurring Events**: Full support for recurring event patterns
+- **MCP Server**: AI assistants can manage your calendar
+
+## Technologies Used
+
+- **Swift**: Native macOS application
+- **EventKit**: Apple's calendar and reminders framework
+- **MCP SDK**: Model Context Protocol integration
+- **Natural Language Processing**: Date/time parsing from human input
+
+## CLI Examples
+
+```bash
+# List today's events
+caly today
+
+# Create an event
+caly add "Team standup tomorrow 9am-9:30am"
+
+# Check availability
+caly free --date tomorrow
+
+# List calendars
+caly calendars
+
+# Delete an event
+caly delete "Team standup"
+```
+
+## MCP Tools
+
+- `calendar_list_events`: Query events with date range
+- `calendar_create_event`: Create new calendar events
+- `calendar_update_event`: Modify existing events
+- `calendar_check_availability`: Find free time slots
+- `calendar_list_calendars`: List available calendars
+
+## Outcome
+
+Caly streamlines calendar management for developers and power users, enabling automation and AI-assisted scheduling that respects your existing calendar workflow.
