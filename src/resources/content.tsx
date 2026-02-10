@@ -85,7 +85,7 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com/ryanlisse",
+    link: "https://cal.com/ryan-lisse/30min",
   },
   intro: {
     display: true,
