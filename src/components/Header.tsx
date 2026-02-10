@@ -11,7 +11,7 @@ import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
   timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+  locale?: string;
 };
 
 const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
@@ -67,14 +67,40 @@ export const Header = () => {
         fillWidth
         padding="8"
         horizontal="center"
-        data-border="rounded"
+        style={{
+          borderBottom: "1px solid var(--neutral-alpha-weak)",
+          backdropFilter: "blur(10px)",
+        }}
         s={{
           position: "fixed",
         }}
       >
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+        {/* Left: Nav Links + Location */}
+        <Row paddingLeft="12" fillWidth vertical="center" gap="24" textVariant="body-default-s">
+          {display.location && (
+            <Row s={{ hide: true }}>
+              <span className="label-caps" style={{ color: "var(--neutral-on-background-weak)" }}>
+                {person.location}
+              </span>
+            </Row>
+          )}
+          {display.time && (
+            <Flex s={{ hide: true }}>
+              <span
+                style={{
+                  fontFamily: "var(--font-code)",
+                  fontSize: "11px",
+                  color: "var(--neutral-on-background-weak)",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                <TimeDisplay timeZone={person.location} />
+              </span>
+            </Flex>
+          )}
         </Row>
+
+        {/* Center: Logo + Nav */}
         <Row fillWidth horizontal="center">
           <Row
             background="page"
@@ -175,6 +201,8 @@ export const Header = () => {
             </Row>
           </Row>
         </Row>
+
+        {/* Right: Time + CTA */}
         <Flex fillWidth horizontal="end" vertical="center">
           <Flex
             paddingRight="12"
@@ -184,7 +212,20 @@ export const Header = () => {
             gap="20"
           >
             <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
+              <a
+                href={`mailto:${person.email}`}
+                className="label-caps transition-editorial"
+                style={{
+                  color: "var(--neutral-on-background-strong)",
+                  textDecoration: "none",
+                  border: "1px solid var(--neutral-alpha-weak)",
+                  borderRadius: "9999px",
+                  padding: "0.5rem 1.25rem",
+                  fontSize: "9px",
+                }}
+              >
+                Let&apos;s Talk
+              </a>
             </Flex>
           </Flex>
         </Flex>

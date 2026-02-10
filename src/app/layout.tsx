@@ -42,6 +42,7 @@ export default async function RootLayout({
         fonts.body.variable,
         fonts.label.variable,
         fonts.code.variable,
+        (fonts as any).serif?.variable,
       )}
     >
       <head>

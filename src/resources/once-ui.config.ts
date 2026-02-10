@@ -34,7 +34,7 @@ const display: DisplayConfig = {
 const protectedRoutes: ProtectedRoutesConfig = {};
 
 // Import and set font for each variant
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { JetBrains_Mono } from "next/font/google";
 
 const heading = Inter({
@@ -61,11 +61,20 @@ const code = JetBrains_Mono({
   display: "swap",
 });
 
-const fonts: FontsConfig = {
+const serif = Playfair_Display({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  display: "swap",
+  style: "italic",
+  weight: "400",
+});
+
+const fonts: FontsConfig & { serif: typeof serif } = {
   heading: heading,
   body: body,
   label: label,
   code: code,
+  serif: serif,
 };
 
 // Dark mode default with refined blue accent
