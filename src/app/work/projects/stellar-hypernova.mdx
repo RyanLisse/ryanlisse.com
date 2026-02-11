@@ -3,7 +3,10 @@ title: "Stellar Hypernova – Multi-Agent Crypto Trading Bot"
 publishedAt: "2024-08-01"
 summary: "An advanced cryptocurrency trading system with multi-agent orchestration for automated market analysis and trade execution."
 images:
-  - "/images/projects/stellar-hypernova/cover.jpg"
+  - "/images/projects/stellar-hypernova/cover-01.jpg"
+  - "/images/projects/stellar-hypernova/cover-02.jpg"
+  - "/images/projects/stellar-hypernova/cover-03.jpg"
+  - "/images/projects/stellar-hypernova/cover-04.jpg"
 team:
   - name: "Ryan Lisse"
     role: "Creator & Developer"
@@ -14,7 +17,40 @@ link: "https://github.com/RyanLisse/stellar-hypernova"
 
 ## Overview
 
-Stellar Hypernova is a sophisticated cryptocurrency trading bot that uses multi-agent orchestration to analyze markets, identify opportunities, and execute trades automatically.
+Stellar Hypernova is a sophisticated cryptocurrency trading bot that uses multi-agent orchestration to analyze markets, identify opportunities, and execute trades automatically. Five specialized agents—market, analysis, strategy, risk, and execution—work together under an orchestrator to make informed trading decisions 24/7.
+
+### Architecture
+
+```mermaid
+flowchart TD
+    subgraph Exchanges["Crypto Exchanges"]
+        BIN["Binance"]
+        CB["Coinbase"]
+        OTH["Other\nExchanges"]
+    end
+
+    subgraph Agents["Multi-Agent System"]
+        MA["Market Agent\nData Collection"]
+        AA["Analysis Agent\nTechnical Analysis"]
+        SA["Strategy Agent\nSignal Evaluation"]
+        RA["Risk Agent\nPosition Sizing"]
+        EA["Execution Agent\nOrder Placement"]
+    end
+
+    ORCH["Orchestrator\nAgent Coordinator"]
+
+    subgraph Output["Monitoring"]
+        DASH["React Dashboard"]
+        BT["Backtesting\nEngine"]
+    end
+
+    BIN & CB & OTH --> MA
+    MA --> AA --> SA --> RA --> EA
+    EA --> BIN & CB & OTH
+    ORCH -.->|coordinates| MA & AA & SA & RA & EA
+    EA --> DASH
+    MA --> BT
+```
 
 ## The Problem
 

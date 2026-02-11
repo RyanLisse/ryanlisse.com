@@ -3,7 +3,10 @@ title: "Briefly – AI-Powered Daily Briefing System"
 publishedAt: "2024-11-01"
 summary: "An intelligent daily briefing system that aggregates messages, calendar events, and health data into concise, voice-enabled summaries."
 images:
-  - "/images/projects/briefly/cover.jpg"
+  - "/images/projects/briefly/cover-01.jpg"
+  - "/images/projects/briefly/cover-02.jpg"
+  - "/images/projects/briefly/cover-03.jpg"
+  - "/images/projects/briefly/cover-04.jpg"
 team:
   - name: "Ryan Lisse"
     role: "Creator & Developer"
@@ -14,7 +17,45 @@ link: "https://github.com/RyanLisse/briefly"
 
 ## Overview
 
-Briefly is an AI-powered daily briefing system that aggregates information from multiple sources—iMessage, WhatsApp, Gmail, Calendar, and Whoop—into concise, actionable briefings with optional voice output.
+Briefly is an AI-powered daily briefing system that aggregates information from multiple sources—iMessage, WhatsApp, Gmail, Calendar, and Whoop—into concise, actionable briefings with optional voice output. It transforms chaotic information streams into a calm, organized start to the day.
+
+### Architecture
+
+```mermaid
+flowchart TD
+    subgraph Sources["Data Sources"]
+        iM["iMessage"]
+        WA["WhatsApp"]
+        GM["Gmail"]
+        CA["Calendar"]
+        WH["Whoop"]
+    end
+
+    subgraph Processing["AI Processing Pipeline"]
+        DC["Data Collection"]
+        IF["Intelligent Filtering"]
+        AI["LLM Summarization"]
+        PR["Smart Prioritization"]
+    end
+
+    subgraph Output["Delivery"]
+        VO["Voice Output\n(ElevenLabs)"]
+        CLI["CLI"]
+        TUI["Terminal UI"]
+        MCP["MCP Server"]
+    end
+
+    iM --> DC
+    WA --> DC
+    GM --> DC
+    CA --> DC
+    WH --> DC
+    DC --> IF --> AI --> PR
+    PR --> VO
+    PR --> CLI
+    PR --> TUI
+    PR --> MCP
+```
 
 ## The Problem
 

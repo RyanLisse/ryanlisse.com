@@ -3,7 +3,10 @@ title: "Caly – macOS Calendar CLI & MCP Server"
 publishedAt: "2024-09-01"
 summary: "A command-line interface and MCP server for Apple Calendar with natural language event management and EventKit integration."
 images:
-  - "/images/projects/caly/cover.jpg"
+  - "/images/projects/caly/cover-01.jpg"
+  - "/images/projects/caly/cover-02.jpg"
+  - "/images/projects/caly/cover-03.jpg"
+  - "/images/projects/caly/cover-04.jpg"
 team:
   - name: "Ryan Lisse"
     role: "Creator & Developer"
@@ -14,7 +17,37 @@ link: "https://github.com/RyanLisse/caly"
 
 ## Overview
 
-Caly is a macOS Calendar CLI tool and MCP server that enables natural language calendar management. Built on Apple's EventKit framework, it provides full access to calendars, events, and reminders.
+Caly is a macOS Calendar CLI tool and MCP server that enables natural language calendar management. Built on Apple's EventKit framework, it provides full access to calendars, events, and reminders. Just type `caly add "Meeting tomorrow at 3pm"` and it handles the rest.
+
+### Architecture
+
+```mermaid
+flowchart LR
+    subgraph Input["Input Layer"]
+        NL["Natural Language\n'Meeting tomorrow 3pm'"]
+        CMD["CLI Commands\ncaly today / add / free"]
+        MCP["MCP Tools\ncalendar_list_events"]
+    end
+
+    subgraph Core["Caly Core (Swift)"]
+        NLP["NL Date Parser"]
+        EM["Event Manager"]
+        AV["Availability\nChecker"]
+        RC["Recurring Events\nEngine"]
+    end
+
+    subgraph Apple["Apple EventKit"]
+        EK["EventKit\nFramework"]
+        iC["iCloud\nCalendars"]
+    end
+
+    NL --> NLP --> EM
+    CMD --> EM
+    MCP --> EM
+    EM --> AV
+    EM --> RC
+    EM --> EK --> iC
+```
 
 ## The Problem
 

@@ -3,7 +3,10 @@ title: "Contactbook – Apple Contacts CLI & MCP Server"
 publishedAt: "2024-10-01"
 summary: "A powerful CLI tool and MCP server for managing Apple Contacts with full CRUD operations and natural language search."
 images:
-  - "/images/projects/contactbook/cover.jpg"
+  - "/images/projects/contactbook/cover-01.jpg"
+  - "/images/projects/contactbook/cover-02.jpg"
+  - "/images/projects/contactbook/cover-03.jpg"
+  - "/images/projects/contactbook/cover-04.jpg"
 team:
   - name: "Ryan Lisse"
     role: "Creator & Developer"
@@ -14,7 +17,41 @@ link: "https://github.com/RyanLisse/contactbook"
 
 ## Overview
 
-Contactbook provides a command-line interface and MCP server for managing Apple Contacts. It enables full CRUD operations on contacts and groups with powerful natural language search capabilities.
+Contactbook provides a command-line interface and MCP server for managing Apple Contacts. It enables full CRUD operations on contacts and groups with powerful natural language search, smart duplicate merging, and JSON/vCard export.
+
+### Architecture
+
+```mermaid
+flowchart TD
+    subgraph Interface["Access Layer"]
+        CLI["CLI\ncontactbook search / add"]
+        MCP["MCP Server\ncontacts_search / create"]
+    end
+
+    subgraph Core["Contactbook Core (Swift)"]
+        CRUD["CRUD Engine"]
+        SEARCH["Fuzzy & Semantic\nSearch"]
+        GROUP["Group\nManager"]
+        MERGE["Smart Duplicate\nMerger"]
+        EXP["Export/Import\nJSON & vCard"]
+    end
+
+    subgraph Apple["Apple Contacts"]
+        CF["Contacts\nFramework"]
+        iC["iCloud\nSync"]
+    end
+
+    CLI --> CRUD
+    CLI --> SEARCH
+    MCP --> CRUD
+    MCP --> SEARCH
+    CRUD --> CF
+    SEARCH --> CF
+    GROUP --> CF
+    MERGE --> CF
+    EXP --> CF
+    CF --> iC
+```
 
 ## The Problem
 
