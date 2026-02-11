@@ -21,37 +21,7 @@ Contactbook provides a command-line interface and MCP server for managing Apple 
 
 ### Architecture
 
-```mermaid
-flowchart TD
-    subgraph Interface["Access Layer"]
-        CLI["CLI\ncontactbook search / add"]
-        MCP["MCP Server\ncontacts_search / create"]
-    end
-
-    subgraph Core["Contactbook Core (Swift)"]
-        CRUD["CRUD Engine"]
-        SEARCH["Fuzzy & Semantic\nSearch"]
-        GROUP["Group\nManager"]
-        MERGE["Smart Duplicate\nMerger"]
-        EXP["Export/Import\nJSON & vCard"]
-    end
-
-    subgraph Apple["Apple Contacts"]
-        CF["Contacts\nFramework"]
-        iC["iCloud\nSync"]
-    end
-
-    CLI --> CRUD
-    CLI --> SEARCH
-    MCP --> CRUD
-    MCP --> SEARCH
-    CRUD --> CF
-    SEARCH --> CF
-    GROUP --> CF
-    MERGE --> CF
-    EXP --> CF
-    CF --> iC
-```
+![Contactbook Architecture – CLI and MCP access layer connecting to core CRUD, search, groups, merge, and export modules via Apple Contacts Framework](/images/projects/contactbook/image-01.jpg)
 
 ## The Problem
 

@@ -21,41 +21,7 @@ Briefly is an AI-powered daily briefing system that aggregates information from 
 
 ### Architecture
 
-```mermaid
-flowchart TD
-    subgraph Sources["Data Sources"]
-        iM["iMessage"]
-        WA["WhatsApp"]
-        GM["Gmail"]
-        CA["Calendar"]
-        WH["Whoop"]
-    end
-
-    subgraph Processing["AI Processing Pipeline"]
-        DC["Data Collection"]
-        IF["Intelligent Filtering"]
-        AI["LLM Summarization"]
-        PR["Smart Prioritization"]
-    end
-
-    subgraph Output["Delivery"]
-        VO["Voice Output\n(ElevenLabs)"]
-        CLI["CLI"]
-        TUI["Terminal UI"]
-        MCP["MCP Server"]
-    end
-
-    iM --> DC
-    WA --> DC
-    GM --> DC
-    CA --> DC
-    WH --> DC
-    DC --> IF --> AI --> PR
-    PR --> VO
-    PR --> CLI
-    PR --> TUI
-    PR --> MCP
-```
+![Briefly Architecture – Data sources flow through collection, filtering, AI summarization, and prioritization to voice, CLI, and TUI outputs](/images/projects/briefly/image-01.jpg)
 
 ## The Problem
 

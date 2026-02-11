@@ -21,39 +21,7 @@ Quorum is an LLM Council deliberation system that leverages multiple AI models t
 
 ### Architecture
 
-```mermaid
-flowchart TD
-    Q["User Query"] --> BC["Broadcast to Council"]
-
-    subgraph Council["LLM Council Members"]
-        direction LR
-        GPT["OpenAI\nGPT-4"]
-        CL["Anthropic\nClaude"]
-        GEM["Google\nGemini"]
-        MORE["Other\nModels"]
-    end
-
-    BC --> GPT & CL & GEM & MORE
-
-    subgraph Deliberation["Deliberation Pipeline"]
-        R1["Initial Responses"]
-        PR["Peer Review\nRound"]
-        BD["Borda Count\nRanking"]
-        CH["Chairman\nSynthesis"]
-    end
-
-    GPT & CL & GEM & MORE --> R1
-    R1 --> PR --> BD --> CH
-
-    CH --> FINAL["Final Synthesized\nAnswer"]
-
-    subgraph UI["Interface"]
-        TUI["TauTUI Terminal"]
-        MCPS["MCP Server"]
-    end
-
-    FINAL --> TUI & MCPS
-```
+![Quorum Architecture – User query broadcasts to LLM council members, flowing through deliberation pipeline with peer review, Borda ranking, and chairman synthesis](/images/projects/quorum/image-01.jpg)
 
 ## The Problem
 

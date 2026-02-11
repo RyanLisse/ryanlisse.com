@@ -21,33 +21,7 @@ Caly is a macOS Calendar CLI tool and MCP server that enables natural language c
 
 ### Architecture
 
-```mermaid
-flowchart LR
-    subgraph Input["Input Layer"]
-        NL["Natural Language\n'Meeting tomorrow 3pm'"]
-        CMD["CLI Commands\ncaly today / add / free"]
-        MCP["MCP Tools\ncalendar_list_events"]
-    end
-
-    subgraph Core["Caly Core (Swift)"]
-        NLP["NL Date Parser"]
-        EM["Event Manager"]
-        AV["Availability\nChecker"]
-        RC["Recurring Events\nEngine"]
-    end
-
-    subgraph Apple["Apple EventKit"]
-        EK["EventKit\nFramework"]
-        iC["iCloud\nCalendars"]
-    end
-
-    NL --> NLP --> EM
-    CMD --> EM
-    MCP --> EM
-    EM --> AV
-    EM --> RC
-    EM --> EK --> iC
-```
+![Caly Architecture – Natural language, CLI, and MCP inputs flow through the core engine to Apple EventKit and iCloud](/images/projects/caly/image-01.jpg)
 
 ## The Problem
 

@@ -21,36 +21,7 @@ Stellar Hypernova is a sophisticated cryptocurrency trading bot that uses multi-
 
 ### Architecture
 
-```mermaid
-flowchart TD
-    subgraph Exchanges["Crypto Exchanges"]
-        BIN["Binance"]
-        CB["Coinbase"]
-        OTH["Other\nExchanges"]
-    end
-
-    subgraph Agents["Multi-Agent System"]
-        MA["Market Agent\nData Collection"]
-        AA["Analysis Agent\nTechnical Analysis"]
-        SA["Strategy Agent\nSignal Evaluation"]
-        RA["Risk Agent\nPosition Sizing"]
-        EA["Execution Agent\nOrder Placement"]
-    end
-
-    ORCH["Orchestrator\nAgent Coordinator"]
-
-    subgraph Output["Monitoring"]
-        DASH["React Dashboard"]
-        BT["Backtesting\nEngine"]
-    end
-
-    BIN & CB & OTH --> MA
-    MA --> AA --> SA --> RA --> EA
-    EA --> BIN & CB & OTH
-    ORCH -.->|coordinates| MA & AA & SA & RA & EA
-    EA --> DASH
-    MA --> BT
-```
+![Stellar Hypernova Architecture – Exchanges connect to multi-agent system with market, analysis, strategy, risk, and execution agents coordinated by orchestrator](/images/projects/stellar-hypernova/image-01.jpg)
 
 ## The Problem
 
