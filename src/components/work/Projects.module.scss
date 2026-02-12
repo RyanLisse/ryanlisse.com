@@ -1,17 +1,46 @@
-.hover {
-    transition: var(--transition-micro-medium);
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--static-space-16);
+    width: 100%;
 
-    &:hover {
-        transform: translateX(var(--static-space-8));
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-        .indicator {
-            transform: rotate(0);
-        }
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-.indicator {
-    transform: rotate(-90deg);
-    left: -2rem;
-    transition: var(--transition-micro-medium);
+.span2 {
+    @media (min-width: 768px) {
+        grid-column: span 2;
+    }
+}
+
+.span1 {
+    grid-column: span 1;
+}
+
+// Specific bento grid variations for visual interest
+.grid > :nth-child(1) {
+    // First project: featured large
+    @media (min-width: 768px) {
+        grid-column: span 2;
+    }
+}
+
+.grid > :nth-child(2) {
+    // Second project: tall right
+    @media (min-width: 768px) {
+        grid-row: span 2;
+    }
+}
+
+.grid > :nth-child(5) {
+    // Fifth project: wide
+    @media (min-width: 768px) {
+        grid-column: span 3;
+    }
 }
