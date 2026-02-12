@@ -1,6 +1,7 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 10px;
     gap: var(--static-space-16);
     width: 100%;
 
@@ -13,34 +14,27 @@
     }
 }
 
-.span2 {
+// Masonry height variations for visual interest
+.tall {
+    grid-row: span 50;
+
     @media (min-width: 768px) {
-        grid-column: span 2;
+        grid-row: span 45;
     }
 }
 
-.span1 {
-    grid-column: span 1;
-}
+.medium {
+    grid-row: span 40;
 
-// Specific bento grid variations for visual interest
-.grid > :nth-child(1) {
-    // First project: featured large
     @media (min-width: 768px) {
-        grid-column: span 2;
+        grid-row: span 38;
     }
 }
 
-.grid > :nth-child(2) {
-    // Second project: tall right
-    @media (min-width: 768px) {
-        grid-row: span 2;
-    }
-}
+.short {
+    grid-row: span 35;
 
-.grid > :nth-child(5) {
-    // Fifth project: wide
     @media (min-width: 768px) {
-        grid-column: span 3;
+        grid-row: span 32;
     }
 }

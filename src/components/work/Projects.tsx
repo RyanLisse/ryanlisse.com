@@ -26,13 +26,14 @@ export function Projects({ range, exclude }: ProjectsProps) {
   return (
     <div className={styles.grid}>
       {displayedProjects.map((post, index) => {
-        // Simple logic for bento grid effect:
-        // First item spans 2 columns if on desktop, others span 1.
-        // You can adjust this logic for more complex patterns.
-        const isFeatured = index === 0; 
-        
+        // Masonry height variation pattern
+        const heightClass =
+          index % 5 === 0 ? styles.tall :
+          index % 5 === 1 || index % 5 === 3 ? styles.medium :
+          styles.short;
+
         return (
-          <div key={post.slug} className={isFeatured ? styles.span2 : styles.span1}>
+          <div key={post.slug} className={heightClass}>
             <FrostedCard
               priority={index < 2}
               href={`/work/${post.slug}`}
