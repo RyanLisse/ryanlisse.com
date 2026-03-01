@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Ryan",
   lastName: "Lisse",
   name: "Ryan Lisse",
-  role: "AI Agentic Software Engineer",
+  role: "Fractional AI Engineer & Agent Architect",
   avatar: "/images/avatar.jpg",
   email: "ryan@ryanlisse.com",
   location: "Europe/Amsterdam",
@@ -43,30 +43,48 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name} – AI Agentic Software Engineer`,
-  description: `Portfolio of ${person.name} – Specializing in agentic systems, LLM workflows, and generative AI applications`,
-  headline: <>Building intelligent systems at the intersection of AI and software engineering</>,
+  title: `${person.name} – Fractional AI Engineer & Agent Architect`,
+  description: `Fractional AI engineer for founders shipping production agents, LLM workflows, and AI systems without adding full-time headcount.`,
+  headline: (
+    <>Fractional AI engineering for teams that need working agents, not another strategy deck</>
+  ),
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Quorum</strong>{" "}
+        <strong className="ml-4">Fractional AI Engineer</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured project
+          Available for retainers
         </Text>
       </Row>
     ),
-    href: "/work/quorum",
+    href: "/services",
   },
   subline: (
     <>
-      I'm Ryan, an AI engineer based in the{" "}
-      <Text as="span" size="xl" weight="strong">Netherlands</Text>. I build agentic systems,
-      LLM workflows, and developer tools in{" "}
-      <Text as="span" size="xl" weight="strong">Swift</Text>,{" "}
-      <Text as="span" size="xl" weight="strong">TypeScript</Text>, and{" "}
-      <Text as="span" size="xl" weight="strong">Python</Text>.
+      I work with founders and technical teams who need{" "}
+      <Text as="span" size="xl" weight="strong">
+        production AI systems
+      </Text>
+      . From multi-agent memory to internal copilots and workflow automation, I design, build, and
+      ship the implementation in{" "}
+      <Text as="span" size="xl" weight="strong">
+        Swift
+      </Text>
+      ,{" "}
+      <Text as="span" size="xl" weight="strong">
+        TypeScript
+      </Text>
+      , and{" "}
+      <Text as="span" size="xl" weight="strong">
+        Python
+      </Text>{" "}
+      from the{" "}
+      <Text as="span" size="xl" weight="strong">
+        Netherlands
+      </Text>
+      .
     </>
   ),
 };
@@ -92,11 +110,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Ryan specializes in agentic systems, LLM workflows, and generative AI applications.
-        He builds production AI features, creates developer tools with Swift and TypeScript,
-        and leads technical communities in developer ecosystems. His work focuses on bridging
-        AI capabilities with practical applications through MCP servers, CLI tools, and
-        multi-model orchestration systems.
+        Ryan specializes in agentic systems, LLM workflows, and generative AI applications. He
+        builds production AI features, creates developer tools with Swift and TypeScript, and leads
+        technical communities in developer ecosystems. His work focuses on bridging AI capabilities
+        with practical applications through MCP servers, CLI tools, and multi-model orchestration
+        systems.
       </>
     ),
   },
@@ -110,10 +128,12 @@ const about: About = {
         role: "AI Software Engineer",
         achievements: [
           <>
-            Architected and deployed AI features across production applications, integrating LLM capabilities that reduced manual processing time by 60%.
+            Architected and deployed AI features across production applications, integrating LLM
+            capabilities that reduced manual processing time by 60%.
           </>,
           <>
-            Built experimentation framework accelerating AI iteration cycles from weeks to days. Established AI specialist network connecting teams with research patterns.
+            Built experimentation framework accelerating AI iteration cycles from weeks to days.
+            Established AI specialist network connecting teams with research patterns.
           </>,
         ],
         images: [],
@@ -124,10 +144,12 @@ const about: About = {
         role: "Guild Lead",
         achievements: [
           <>
-            Built Amsterdam developer community to 500+ active members. Organized 12+ technical workshops and hackathons.
+            Built Amsterdam developer community to 500+ active members. Organized 12+ technical
+            workshops and hackathons.
           </>,
           <>
-            Created technical content strategy reaching 50K+ developers. Achieved 40% increase in developer onboarding and 3x YoY engagement growth.
+            Created technical content strategy reaching 50K+ developers. Achieved 40% increase in
+            developer onboarding and 3x YoY engagement growth.
           </>,
         ],
         images: [],
@@ -138,10 +160,12 @@ const about: About = {
         role: "Developer Community Lead (Core Team)",
         achievements: [
           <>
-            Led onboarding for 200+ developers transitioning to web3, reducing time-to-first-deployment by 50%.
+            Led onboarding for 200+ developers transitioning to web3, reducing
+            time-to-first-deployment by 50%.
           </>,
           <>
-            Facilitated 8+ hackathons producing 30+ production-ready applications. Built developer resource hub with tools and documentation.
+            Facilitated 8+ hackathons producing 30+ production-ready applications. Built developer
+            resource hub with tools and documentation.
           </>,
         ],
         images: [],
@@ -152,10 +176,12 @@ const about: About = {
         role: "Full-stack Developer (Intensive Program)",
         achievements: [
           <>
-            Selected from 1000+ applicants (3% acceptance rate). Shipped 5+ full-stack applications using React, Node.js, Express, and PostgreSQL.
+            Selected from 1000+ applicants (3% acceptance rate). Shipped 5+ full-stack applications
+            using React, Node.js, Express, and PostgreSQL.
           </>,
           <>
-            Practiced TDD and Agile methodologies with 95%+ test coverage across Java, JavaScript, React, Node.js, GraphQL, and Redux.
+            Practiced TDD and Agile methodologies with 95%+ test coverage across Java, JavaScript,
+            React, Node.js, GraphQL, and Redux.
           </>,
         ],
         images: [],
@@ -195,7 +221,11 @@ const about: About = {
       {
         title: "AI & Agentic Systems",
         description: (
-          <>Building production AI features with LangChain, OpenAI, Anthropic Claude, and Hugging Face. Specializing in multi-agent orchestration, prompt engineering, and LLM fine-tuning.</>
+          <>
+            Building production AI features with LangChain, OpenAI, Anthropic Claude, and Hugging
+            Face. Specializing in multi-agent orchestration, prompt engineering, and LLM
+            fine-tuning.
+          </>
         ),
         tags: [
           { name: "Python", icon: "python" },
@@ -206,7 +236,10 @@ const about: About = {
       {
         title: "TypeScript & Full-stack Development",
         description: (
-          <>Full-stack development with TypeScript, Next.js, React, Node.js, Prisma, and GraphQL. Building modern web applications, REST APIs, and real-time systems.</>
+          <>
+            Full-stack development with TypeScript, Next.js, React, Node.js, Prisma, and GraphQL.
+            Building modern web applications, REST APIs, and real-time systems.
+          </>
         ),
         tags: [
           { name: "TypeScript", icon: "typescript" },
@@ -218,7 +251,10 @@ const about: About = {
       {
         title: "Swift & Apple Ecosystem",
         description: (
-          <>Building native macOS/iOS CLI tools and applications with Swift, SwiftUI, EventKit, and Contacts frameworks. Creating MCP servers and TUI interfaces.</>
+          <>
+            Building native macOS/iOS CLI tools and applications with Swift, SwiftUI, EventKit, and
+            Contacts frameworks. Creating MCP servers and TUI interfaces.
+          </>
         ),
         tags: [
           { name: "Swift", icon: "swift" },
@@ -229,17 +265,21 @@ const about: About = {
       {
         title: "Model Context Protocol (MCP)",
         description: (
-          <>Creating MCP servers that expose native capabilities to AI assistants, enabling seamless human-AI collaboration across multiple platforms.</>
+          <>
+            Creating MCP servers that expose native capabilities to AI assistants, enabling seamless
+            human-AI collaboration across multiple platforms.
+          </>
         ),
-        tags: [
-          { name: "MCP", icon: "mcp" },
-        ],
+        tags: [{ name: "MCP", icon: "mcp" }],
         images: [],
       },
       {
         title: "Developer Community & Leadership",
         description: (
-          <>Built communities of 500+ developers. Organized 20+ workshops and hackathons. Created content reaching 50K+ developers. Technical strategy and cross-functional collaboration.</>
+          <>
+            Built communities of 500+ developers. Organized 20+ workshops and hackathons. Created
+            content reaching 50K+ developers. Technical strategy and cross-functional collaboration.
+          </>
         ),
         tags: [],
         images: [],
@@ -253,6 +293,13 @@ const blog: Blog = {
   label: "Blog",
   title: "Writing about AI agents, Swift, and software engineering...",
   description: `Read ${person.name}'s thoughts on building intelligent systems`,
+};
+
+const services: Blog = {
+  path: "/services",
+  label: "Services",
+  title: `Services – ${person.name}`,
+  description: `Fractional AI engineering services, agent architecture reviews, and focused delivery sprints by ${person.name}.`,
 };
 
 const work: Work = {
@@ -270,4 +317,4 @@ const gallery: Gallery = {
   images: [],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, services, work, gallery };

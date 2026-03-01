@@ -19,6 +19,7 @@ const baseURL: string = "https://ryanlisse.com";
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
+  "/services": true,
   "/work": true,
   "/blog": true,
   "/gallery": false, // Disabled for now

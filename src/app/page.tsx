@@ -9,7 +9,6 @@ import {
   Schema,
   Meta,
   Flex,
-  Icon,
   SmartLink,
 } from "@once-ui-system/core";
 import { home, about, person, social, baseURL, routes } from "@/resources";
@@ -80,10 +79,7 @@ export default function Home() {
             <RevealFx translateY="4">
               <Row gap="12" vertical="center" style={{ marginBottom: "3rem" }}>
                 <div className="status-pulse" />
-                <span
-                  className="label-caps"
-                  style={{ color: "var(--status-green)" }}
-                >
+                <span className="label-caps" style={{ color: "var(--status-green)" }}>
                   Available for work
                 </span>
               </Row>
@@ -104,34 +100,46 @@ export default function Home() {
                   className="stroke-text"
                   style={{
                     fontWeight: 900,
-                    fontSize: "clamp(60px, 10vw, 140px)",
+                    fontSize: "clamp(54px, 9vw, 124px)",
                     letterSpacing: "-0.04em",
                   }}
                 >
-                  BUILDING
+                  FRACTIONAL AI
                 </span>
                 <span
                   className="serif-italic"
                   style={{
-                    fontSize: "clamp(60px, 10vw, 140px)",
+                    fontSize: "clamp(54px, 9vw, 124px)",
                     color: "var(--neutral-on-background-strong)",
                     marginTop: "-0.1em",
                   }}
                 >
-                  intelligent
+                  engineer &
                 </span>
                 <span
                   style={{
                     fontWeight: 900,
-                    fontSize: "clamp(60px, 10vw, 140px)",
+                    fontSize: "clamp(54px, 9vw, 124px)",
                     letterSpacing: "-0.04em",
                     color: "var(--neutral-on-background-strong)",
                     marginTop: "-0.1em",
                   }}
                 >
-                  SYSTEMS
+                  AGENT ARCHITECT
                 </span>
               </div>
+            </RevealFx>
+
+            <RevealFx translateY="8" delay={0.2}>
+              <Text
+                variant="body-default-l"
+                onBackground="neutral-medium"
+                style={{ marginTop: "2rem", maxWidth: "40rem", lineHeight: 1.6 }}
+              >
+                I ship AI systems to production for founders and lean product teams. Not decks. Not
+                mockups. Working agents, internal copilots, and workflow automation your team can
+                use this quarter.
+              </Text>
             </RevealFx>
 
             {/* Technical Readouts */}
@@ -174,7 +182,7 @@ export default function Home() {
                     }}
                     onBackground="neutral-medium"
                   >
-                    Almere, Netherlands
+                    8-15 Hours / Week
                   </Text>
                 </Column>
                 <Column gap="8">
@@ -200,15 +208,18 @@ export default function Home() {
 
             {/* CTA Button */}
             <RevealFx translateY="8" delay={0.5}>
-              <Row style={{ marginTop: "5rem" }}>
+              <Row gap="16" wrap vertical="center" style={{ marginTop: "5rem" }}>
                 <Button
                   id="hero-cta"
-                  href="/work"
+                  href="https://cal.com/ryan-lisse/30min"
                   variant="primary"
                   size="l"
                   arrowIcon
                 >
-                  Explore Work
+                  Book a Call
+                </Button>
+                <Button href="/work" variant="secondary" size="l" arrowIcon>
+                  See My Work
                 </Button>
               </Row>
             </RevealFx>
@@ -271,7 +282,7 @@ export default function Home() {
                     color: "var(--neutral-on-background-weak)",
                   }}
                 >
-                  System Status
+                  Engagement Model
                 </span>
                 <span
                   style={{
@@ -280,7 +291,7 @@ export default function Home() {
                     color: "var(--cyan-accent, #06B6D4)",
                   }}
                 >
-                  v2.0.4
+                  RETAINER READY
                 </span>
               </Row>
               <Column gap="4">
@@ -315,11 +326,11 @@ export default function Home() {
                 }}
                 onBackground="neutral-medium"
               >
-                {"> INITIATING SEQUENCE"}
+                {"> START: WEEK 01"}
                 <br />
-                {"> CORE_MODULE: ACTIVE"}
+                {"> SCOPE: BUILD + SHIP"}
                 <br />
-                {"> DATA_VIZ: RENDERED"}
+                {"> OUTPUT: PRODUCTION AI"}
               </Text>
             </div>
           </Column>
@@ -337,10 +348,7 @@ export default function Home() {
             zIndex: 20,
           }}
         >
-          <div
-            className="marquee-content"
-            style={{ display: "flex", alignItems: "center" }}
-          >
+          <div className="marquee-content" style={{ display: "flex", alignItems: "center" }}>
             {[0, 1].map((copy) => (
               <div
                 key={copy}
@@ -361,7 +369,7 @@ export default function Home() {
                     letterSpacing: "0.1em",
                   }}
                 >
-                  AI Builder
+                  Agent Architect
                 </span>
                 <span style={{ fontSize: "2rem", color: "#06B6D4" }}>✦</span>
                 <span
@@ -371,7 +379,7 @@ export default function Home() {
                     color: "var(--neutral-on-background-strong)",
                   }}
                 >
-                  Software Engineer
+                  Production Systems
                 </span>
                 <span style={{ fontSize: "2rem", color: "#06B6D4" }}>✦</span>
                 <span
@@ -383,7 +391,7 @@ export default function Home() {
                     letterSpacing: "0.1em",
                   }}
                 >
-                  Systems Thinker
+                  AI Engineer
                 </span>
                 <span style={{ fontSize: "2rem", color: "#06B6D4" }}>✦</span>
                 <span
@@ -393,7 +401,7 @@ export default function Home() {
                     color: "var(--neutral-on-background-strong)",
                   }}
                 >
-                  MCP Developer
+                  Builder
                 </span>
                 <span style={{ fontSize: "2rem", color: "#06B6D4" }}>✦</span>
               </div>
@@ -454,24 +462,15 @@ export default function Home() {
             </RevealFx>
             <RevealFx translateY="4" delay={0.2}>
               <Row gap="16" horizontal="center">
-                <span
-                  className="label-caps"
-                  style={{ color: "var(--neutral-on-background-weak)" }}
-                >
+                <span className="label-caps" style={{ color: "var(--neutral-on-background-weak)" }}>
                   NETHERLANDS
                 </span>
                 <span style={{ color: "#0066FF" }}>—</span>
-                <span
-                  className="label-caps"
-                  style={{ color: "var(--neutral-on-background-weak)" }}
-                >
+                <span className="label-caps" style={{ color: "var(--neutral-on-background-weak)" }}>
                   SOFTWARE ENGINEERING
                 </span>
                 <span style={{ color: "#0066FF" }}>—</span>
-                <span
-                  className="label-caps"
-                  style={{ color: "var(--neutral-on-background-weak)" }}
-                >
+                <span className="label-caps" style={{ color: "var(--neutral-on-background-weak)" }}>
                   AI
                 </span>
               </Row>
