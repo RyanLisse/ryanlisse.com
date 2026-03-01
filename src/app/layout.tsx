@@ -13,7 +13,8 @@ import {
   RevealFx,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
+import { Footer, Header, RouteGuard, Providers, WebMcpProvider } from "@/components";
+import { getWebMcpCatalog } from "@/lib/webmcp/catalog";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 
 export async function generateMetadata() {
@@ -31,6 +32,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const webMcpCatalog = getWebMcpCatalog();
+
   return (
     <Flex
       suppressHydrationWarning
@@ -53,7 +56,7 @@ export default async function RootLayout({
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
+                  const defaultTheme = ${JSON.stringify(style.theme)};
                   
                   // Set defaults from config
                   const config = ${JSON.stringify({
@@ -84,7 +87,7 @@ export default async function RootLayout({
                   
                   // Apply saved theme
                   const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
+                  const resolvedTheme = resolveTheme(savedTheme || defaultTheme);
                   root.setAttribute('data-theme', resolvedTheme);
                   
                   // Apply any saved style overrides
@@ -105,6 +108,7 @@ export default async function RootLayout({
         />
       </head>
       <Providers>
+        <WebMcpProvider catalog={webMcpCatalog} />
         <Column
           as="body"
           background="page"

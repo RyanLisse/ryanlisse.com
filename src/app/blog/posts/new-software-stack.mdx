@@ -1,0 +1,82 @@
+---
+title: "The New Software Stack: Agents, Harnesses, and Deterministic Trust"
+publishedAt: "2026-03-01"
+image: "/images/og/home.jpg"
+summary: "Why the modern software stack now includes agents, harnesses, and verification layers instead of treating AI as a thin assistant bolted onto existing workflows."
+tag: "AI"
+---
+
+## The Stack Changed Faster Than Most Teams Admit
+
+The old software stack was straightforward: application code, infrastructure, observability, and a human team operating the system.
+
+That stack still exists. It is just no longer complete.
+
+If your team is building with AI seriously, you now need a different layer cake:
+
+- Agents that execute work
+- Harnesses that constrain and coordinate them
+- Verification that turns plausible output into trustworthy output
+
+This is the new software stack. And it changes how technical teams should build.
+
+## Agents Are Not the Product. They Are the Labor Layer.
+
+The first mistake teams make is treating agents like a UI feature.
+
+An agent is closer to labor than interface. It is a worker with access to tools, context, and instructions. Once you see it that way, the architecture questions get clearer:
+
+- What tools can it use?
+- What memory does it retain?
+- What can it break?
+- How do you verify the result?
+
+That means good agent architecture looks less like prompt design and more like systems design.
+
+## Harnesses Are the Difference Between Demo and Production
+
+A raw model call can impress in a demo. A production system needs a harness around the model:
+
+- Routing and tool access
+- Context loading
+- Retry and failure behavior
+- Logging and observability
+- Permission boundaries
+- Verification before side effects
+
+Without that harness, the system is mostly vibes. With it, you can start trusting the output enough to connect it to real work.
+
+## Deterministic Trust Beats Artificial Confidence
+
+The goal is not to make an AI system sound confident.
+
+The goal is to make it *behave predictably enough* that your team knows when to trust it, when to stop it, and how to recover when it fails.
+
+That requires:
+
+- Real tests, not just happy-path prompts
+- Narrow contracts between steps
+- Observable side effects
+- Clear rollback paths
+
+In other words: the more agentic the system becomes, the more ordinary engineering discipline matters.
+
+## What This Means for Founders and Product Teams
+
+If you are shipping AI features, the bottleneck is rarely "having access to a model."
+
+The bottleneck is translating ambiguous product ambition into a working system with tools, memory, retrieval, orchestration, and verification. That is why companies increasingly need implementation-first AI engineering rather than lightweight AI advice.
+
+If that is where your team is stuck, [book a call](/services). I help companies ship the actual system, not just the concept deck.
+
+## The Teams That Win Will Build the Whole Stack
+
+The winners in this next cycle will not be the teams with the most enthusiastic AI copywriting. They will be the teams that build:
+
+- useful agents
+- strong harnesses
+- verification layers that create deterministic trust
+
+That is the new stack.
+
+And it rewards builders.
