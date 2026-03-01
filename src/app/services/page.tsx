@@ -10,63 +10,7 @@ import {
   RevealFx,
 } from "@once-ui-system/core";
 import { about, baseURL, person, services } from "@/resources";
-
-const serviceTiers = [
-  {
-    icon: "🚀",
-    title: "AI Kickstart",
-    price: "$7-10K / week",
-    description:
-      "An intensive build sprint for teams that need to validate an AI product direction fast.",
-    deliverables: [
-      "Stack audit and implementation plan",
-      "Working prototype or internal tool shipped in five days",
-      "Handoff notes, architecture guidance, and next-step roadmap",
-    ],
-  },
-  {
-    icon: "🤝",
-    title: "Fractional AI Engineer",
-    price: "$5-10K / month",
-    description:
-      "Hands-on weekly engineering support for shipping agents, copilots, and automation into real products.",
-    deliverables: [
-      "8-15 hours per week of implementation and architecture",
-      "Code review, pairing, and unblock support for your team",
-      "Production delivery across TypeScript, Swift, and Python systems",
-    ],
-  },
-  {
-    icon: "🔍",
-    title: "Agent Architecture Review",
-    price: "$2-5K / one-off",
-    description:
-      "A focused technical audit for companies that already have AI work in motion but need sharper architecture.",
-    deliverables: [
-      "Deep review of agent loops, prompts, tools, and evaluation paths",
-      "Prioritized written report with risks and recommendations",
-      "Implementation roadmap your team can execute immediately",
-    ],
-  },
-];
-
-const faqItems = [
-  {
-    question: "Who is this for?",
-    answer:
-      "Series A teams, technical founders, and small product orgs that need senior AI implementation without hiring a full-time AI lead yet.",
-  },
-  {
-    question: "What do you actually build?",
-    answer:
-      "Internal copilots, workflow automation, multi-agent systems, retrieval pipelines, and production AI features that integrate with your current stack.",
-  },
-  {
-    question: "How do we start?",
-    answer:
-      "Book a call, walk me through the product and constraints, and I will recommend the best engagement model before any work begins.",
-  },
-];
+import { serviceFaqItems, serviceTiers } from "@/resources/servicesData";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -168,7 +112,7 @@ export default function ServicesPage() {
             FAQ
           </Heading>
           <Column gap="16">
-            {faqItems.map((item) => (
+            {serviceFaqItems.map((item) => (
               <details key={item.question}>
                 <summary>
                   <Text as="span" variant="heading-strong-m">

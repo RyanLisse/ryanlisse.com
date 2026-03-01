@@ -5,11 +5,14 @@
     "dev": "next dev",
     "export": "next export",
     "build": "next build",
+    "test": "vitest run",
     "biome-write": "npx @biomejs/biome format --write .",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@mcp-b/webmcp-polyfill": "^2.0.8",
+    "@mcp-b/webmcp-types": "^2.0.8",
     "@mdx-js/loader": "^3.1.0",
     "@next/mdx": "^16.0.10",
     "@once-ui-system/core": "^1.5.6",
@@ -33,6 +36,7 @@
     "@types/react-dom": "^19.0.5",
     "eslint": "^9.25.0",
     "typescript": "^5.8.3",
-    "tzdata": "^1.0.44"
+    "tzdata": "^1.0.44",
+    "vitest": "^4.0.18"
   }
 }
